@@ -1,0 +1,6 @@
+Replace paths relevant to your situation but they can all be found in the Honeycomb\Honey\Varroa\src\certs\debug_cert folder. Map as needed.
+
+Once created a cert copy the "-----BEGIN CERTIFICATE-----" to "-----END CERTIFICATE-----" output in the console and replace over the localhost.crt file. Then install the crt file on the local machine under "Trusted Root Certification Authorities".
+
+
+openssl req -x509 -in C:\Users\chrisdevine\Downloads\csr.txt -key C:\Users\chrisdevine\Downloads\key.txt -days 3650 -config C:\Users\chrisdevine\Downloads\config.txt -extensions 'v3_req'

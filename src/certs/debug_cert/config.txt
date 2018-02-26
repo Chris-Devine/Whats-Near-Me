@@ -1,0 +1,11 @@
+[req]
+default_md = sha256
+x509_extensions = v3_req
+prompt = no
+[v3_req]
+basicConstraints=CA:FALSE
+keyUsage=digitalSignature,keyEncipherment
+extendedKeyUsage=serverAuth,clientAuth
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = localhost

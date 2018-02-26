@@ -1,0 +1,63 @@
+<div class="container">
+  <h1>Find Whats Near By Your Location</h1>
+  <p>Please enter an address or location to find the closest amenities</p>
+  <div class="form-group">
+    <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
+      #search [formControl]="searchControl">
+  </div>
+  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" (mapReady)="loadNativeMap($event)">
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  </agm-map>
+</div>
+<div class="container">
+
+</div>
+
+<div class="container" style="margin-top: 1em;">
+  <div class="row">
+    <div class="col-sm-10">
+      <div class="form-group">
+        <select #selectedPlaceType class="custom-select form-control">
+          <option selected>Select a place type to see to add to the table</option>
+          <option *ngFor="let type of placeTypes" value="{{type.key}}">{{type.value}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-sm-2 text-xs-right">
+      <div class="form-group">
+        <button type="button" class="btn btn-primary" (click)="addPlaceTypeToTable(selectedPlaceType.value, selectedPlaceType.options[selectedPlaceType.selectedIndex].text)">
+          Add Place Type
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <table class="table">
+    <tr>
+      <th>
+        Description
+      </th>
+      <th>
+        Travel Time (by car)
+      </th>
+      <th>
+        Travel Distance (by car)
+      </th>
+    </tr>
+    <tr *ngFor="let result of distanceUiResults">
+      <td>
+        {{result.description}}
+      </td>
+      <td>
+        {{result.travelTime}}
+      </td>
+      <td>
+        {{result.travelDistance}}
+      </td>
+    </tr>
+  </table>
+</div>

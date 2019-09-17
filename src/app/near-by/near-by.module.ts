@@ -12,7 +12,7 @@ import { AgmCoreModule } from '@agm/core';
 @NgModule({
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyAjsbEM-MxdgVXLr0vsy46h4hJsAlCW9ck",
+      apiKey: "AIzaSyD45jae41u2x660NI7HypwOrChSzNBH6lQ",
       libraries: ["places"]
     }),
     CommonModule,
